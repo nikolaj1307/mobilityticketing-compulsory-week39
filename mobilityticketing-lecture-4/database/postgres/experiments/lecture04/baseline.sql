@@ -1,4 +1,4 @@
-/set ON_ERROR_STOP on
+\set ON_ERROR_STOP on
 select current_database();
 select id, product_code, price, currency from tickets order by id;
 select t.id,t.product_code from tickets t left join products p on p.code=t.product_code

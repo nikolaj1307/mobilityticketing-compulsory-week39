@@ -1,6 +1,11 @@
 -- Inspect the stored references after expansion.
 select t.id, t.product_code, t.product_id, t.price, t.currency
 from tickets t
+join products p on t.product_id = p.id
+where t.product_id is null
+  or t.product_code is null
+  or p.code is null
+  or t.product_code != p.code
 order by t.id;
 
 -- TODO: Join products and return only tickets with a null ID, a missing
