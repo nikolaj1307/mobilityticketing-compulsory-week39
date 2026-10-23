@@ -4,8 +4,8 @@ select
     t.scheduled_departure_utc,
     t.status
 from trips t
-where t.route_id = :route_id
-  and t.scheduled_departure_utc >= :after_utc
+where t.route_id = 'LINE-M2'
+  and t.scheduled_departure_utc >= current_timestamp
 order by t.scheduled_departure_utc
 limit 20;
 
@@ -18,7 +18,7 @@ select
     s.name as stop_name
 from route_stops rs
 join stops s on s.id = rs.stop_id
-where rs.route_id = :route_id
+where rs.route_id = 'LINE-M2'
 order by rs.stop_sequence;
 
 -- Query 3: routes and trip count, including routes with zero trips
@@ -30,6 +30,6 @@ select
 from routes r
 left join trips t
     on t.route_id = r.id
-    and t.service_date = :service_date
+    and t.service_date = '2026-08-26'
 group by r.id, r.short_name
 order by r.id;

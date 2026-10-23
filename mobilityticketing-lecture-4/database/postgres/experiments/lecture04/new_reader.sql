@@ -3,12 +3,11 @@
 -- Before backfill, your query should still resolve every original ticket.
 SELECT
     t.id,
-    t.product_code,
     t.product_id,
     COALESCE(t.product_id, p.id) AS resolved_product_id,
     t.price,
     t.currency
 FROM tickets t
          LEFT JOIN products p
-                   ON p.code = t.product_code
+                   ON p.id = t.product_id
 ORDER BY t.id;

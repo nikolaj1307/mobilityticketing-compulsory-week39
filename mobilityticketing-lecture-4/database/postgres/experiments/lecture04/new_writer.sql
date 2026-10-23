@@ -13,8 +13,6 @@ select id, code, price, currency from products order by code;
 -- New writer accepts product_id and stores both
 -- product_id and the corresponding product_code.
 
-
-
 insert into tickets (
     id,
     user_id,
@@ -41,7 +39,7 @@ select
     36.00,
     'DKK'
 from products p
-where p.id = '4ebe1ab1-ad11-4aee-a11c-1809227a3723';
+where p.id = 'c1e8436a-3909-4aaf-b8d0-0992819f52e0';
 
 select
     id,
